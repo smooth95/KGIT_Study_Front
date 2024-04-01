@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let num = 1;
+        window.onload = () => {
+            const img = document.getElementById("img01");
+        }
+        const prevImg = () => {
+            const img = document.getElementById("img01");
+            if (num == 1) {
+                num = 8;
+            } else {
+                num = num - 1;
+            }
+            img.src = `../../resources/images/최근상품0${num}.jpg`
+        }
+        const nextImg = () => {
+            const img = document.getElementById("img01");
+            if (num == 8) {
+                num = 1;
+            } else {
+                num = num + 1;
+            }
+            img.src = `../../resources/images/최근상품0${num}.jpg`
+        }
+    </script>
+    <img src="../../resources/images/최근상품01.jpg" id="img01" style="width: 200px; height: 200px;">
+    <br>
+    <input type="button" id="btn01" value="이전 사진" onclick="prevImg()">
+    <input type="button" id="btn02" value="다음 사진" onclick="nextImg()">
+</body>
+</html>

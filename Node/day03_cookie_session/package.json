@@ -1,0 +1,12 @@
+{
+  "scripts": {
+    "start": "npx supervisor app01.js"
+  },
+  "dependencies": {
+    "cookie-parser": "^1.4.6",
+    "ejs": "^3.1.9",
+    "express": "^4.19.2",
+    "express-session": "^1.18.0",
+    "supervisor": "^0.12.0"
+  }
+}

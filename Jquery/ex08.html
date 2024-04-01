@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #modal_wrap {
+            display: none;
+            position: fixed;
+            z-index: 0;
+            margin: auto;
+            top: 0;
+            left: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+
+        }
+        #first {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            margin: auto;
+            top: 30px;
+            left: 0;
+            right: 0;
+            width: 300px;
+            height: 250px;
+            background: rgba(123, 123, 0, 0.9);
+
+        }
+    </style>
+    <script src="jquery-3.7.1.min.js"></script>
+    <script>
+        const reply = () => {
+            $("#first").slideDown('slow')
+            $("#modal_wrap").show();
+        }
+        const slide_hide = () => {
+            $("#first").slideUp('slow')
+            $("#modal_wrap").hide();
+        }
+    </script>
+</head>
+<body>
+    <div id="modal_wrap">
+        <div id="first">
+            <div style="width: 250px; margin: auto; padding-top: 20px">
+                <b>답글 작성 페이지</b>
+                <b>작성자 : 홍길동</b><hr>
+                <b>제목 : </b><input type="text"><br>
+                <b>내용</b><br><textarea rows="5" cols="30"></textarea>
+                <hr>
+                <button type="button">답글</button>
+                <button type="button" onclick="slide_hide()">취소</button>
+            </div>
+        </div>
+    </div>
+    <h1>내용 작성 합니다.</h1>
+    <p>배부르다~</p>
+    <button onclick="reply()">답글달기</button>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function test(x, y) {
+            return x + y;
+        }
+        document.write(test(1, 2) + "<br>")
+
+        let sumFunc = function (x, y) {
+            return x + y;
+        }
+        document.write(sumFunc(1, 2) + "<br>")
+
+        let sumFunc1 = (x, y) => x + y;
+        document.write(sumFunc1(10, 20) + "<br>")
+
+        let sumFunc2 = (x, y) => {
+            let num = 100; 
+            return x + y + num
+        };
+        // 중괄호로 묶었을 경우 return이 필요하다.
+        document.write(sumFunc2(100, 200) + "<br>")
+
+        const result01 = () => {
+            10+20;
+        }
+        const result02 = () => 10+20;
+        const result03 = () => (10+20);
+        document.write("<hr>")
+        document.write(result01() + "<br>")
+        document.write(result02() + "<br>")
+        document.write(result03() + "<br>")
+    </script>
+    <!-- 자주 쓰이는 기능 -->
+</body>
+</html>

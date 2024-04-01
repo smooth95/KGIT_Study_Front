@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .wrap {
+            width: 500px; 
+            height: 500px; 
+            background: lightgray;
+        }
+        .head {
+            width: 100%; 
+            height: 100px; 
+            background: red;
+            text-align: center;
+            line-height: 100px;
+            border: 2px solid black;
+            box-sizing: border-box;
+            font-weight: bold;
+            font-size: 35px;
+        }
+        .container {
+            background: blue;
+            display: flex;
+        }
+        .nav {
+            width: 15%;
+            height: 300px;
+            background: yellow;
+            text-align: center;
+            border: 2px solid black;
+            box-sizing: border-box;
+            line-height: 50px;
+        }
+        .section {
+            width: 60%;
+            height: 300px;
+            background: green;
+            text-align: center;
+            border: 2px solid black;
+            box-sizing: border-box;
+            line-height: 50px;
+        }
+        .footer {
+            width: 500px;
+            height: 100px;
+            background: lightpink;
+            text-align: center;
+            line-height: 100px;
+            border: 2px solid black;
+            box-sizing: border-box;
+        }
+        .aside {
+            width: 25%;
+            height: 300px;
+            background: yellow;
+            text-align: center;
+            border: 2px solid black;
+            box-sizing: border-box;
+            line-height: 50px;
+        }
+        div div span {
+            font-weight: bold;
+        }
+        .hd1 {
+            width: 80%;
+            height: 30px;
+            background: lightblue;
+            line-height: 30px;
+            border: 2px solid black;
+            margin-left: 30px;
+            margin-top: 10px;
+        }
+        .ac1 {
+            width: 80%;
+            height: 30px;
+            background: yellow;
+            line-height: 30px;
+            border: 2px solid black;
+            margin-left: 30px;
+            margin-top: 30px;
+        }
+        .ft1 {
+            width: 80%;
+            height: 30px;
+            background: lightpink;
+            line-height: 30px;
+            border: 2px solid black;
+            margin-left: 30px;
+            margin-top: 30px;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <header class="head">
+            <span>header</span>
+        </header>
+        <div class="container">
+            <nav class="nav">
+                <span>nav</span>
+            </nav>
+            <section class="section">
+                <span>section</span>
+                <header class="hd1">
+                    header
+                </header>
+                <article class="ac1">
+                    article
+                </article>
+                <footer class="ft1">
+                    footer
+                </footer>
+            </section>
+            <aside class="aside">
+                <span>aside</span>
+            </aside>
+        </div>
+        <div class="footer">
+            <span>footer</span>
+        </div>
+    </div>
+</body>
+</html>

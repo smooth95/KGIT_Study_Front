@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const data = ['1111', '2222','3333'];
+        for (let i = 0 ; i < data.length; i++) {
+            document.write(data[i]+ "<br>")
+        }
+        // 기본적인 for 출력 방식
+
+        document.write("<hr>")
+        // function t(d) { console.log(d) };
+        const t = (d) => {console.log(d)}
+        data.forEach(t); // 단순 출력, 연산(return값을 가질 수 없다.)
+        let msg;
+        let result = data.forEach((d) => {
+            document.write(d+"<br>")
+            msg += d+"<br>";
+            return msg;
+        })
+        document.write("<hr>"+result)
+        // forEach는 반환값이 없으므로 undefined로 출력된다.
+        
+        // function t02(d) {
+        //     return `<b style="color:blue">${d}</b>`
+        // }
+        const t02 = (d) => `<b style="color:red">${d}</b>`
+        const mapData = data.map(t02);
+        document.write("<hr>"+mapData)
+        
+        const mapData02 = data.map((d) => `<b style="color:green">${d}</b>`);
+        
+        document.write("<hr>"+mapData02)
+    </script>
+</body>
+</html>

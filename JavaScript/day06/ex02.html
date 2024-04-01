@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let kdata = ['서울', '부산'];
+        document.write(`기본 배열 : ${kdata}<hr>`);
+        kdata.push('인천','대구');
+        // 배열의 맨뒤에 데이터를 추가
+        document.write(`push : ${kdata}<br>`);
+        kdata.pop();
+        // 배열의 맨 뒤 데이터를 제거
+        document.write(`pop : ${kdata}<hr>`)
+        kdata.unshift("111", '222');
+        // 배열의 앞에 데이터를 추가
+        document.write(`unshift : ${kdata}<br>`)
+        kdata.shift();
+        // 배열의 맨 앞 데이터를 제거
+        document.write(`shift : ${kdata}<br>`)
+        let data = kdata.concat('안녕', '하세요');
+        // 배열의 데이터를 복사할 수 있다.
+        document.write(`concat : ${data}, ${typeof data}<br>`)
+        document.write(`kdata : ${kdata}, ${typeof kdata}<br>`)
+    </script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function myFocus() {
+            let pwd = document.getElementById('pwd');
+            console.log(pwd.value);
+            if(pwd.value == "") {
+                alert('password 는 필수 항목입니다.')
+                pwd.focus();
+            } else {
+                document.getElementById('copy').value = pwd.value;
+            }
+        }
+        const pwdChk = () => {
+            let pwd = document.getElementById('pwd');
+            let pwdC = document.getElementById('pwdCheck');
+            if (pwd.value !== pwdC.value){
+                alert("일치하지 않습니다.!!!")
+                pwd.value = "";
+                pwdC.value = "";
+                pwd.focus();
+            }
+
+        }
+    </script>
+</head>
+<body>
+    <!-- <form action="ex01.html" method="get">
+        <input type="text" id="txt" required><br>
+        <input type="text" id="pwd"><br>
+        <input type="text" id="copy"><br>
+        <input type="submit" value="클릭" onclick="myFocus()"><br>
+    </form> -->
+
+    <input type="text" id="txt"><br>
+    <input type="password" id="pwd"><br>
+    <input type="text" id="pwdCheck" onchange="pwdChk()"><br>
+    <input type="text" id="copy"><br>
+    <input type="button" value="클릭" onclick="myFocus()"><br>
+</body>
+</html>

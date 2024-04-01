@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>테이블 - 표를 정의할 때 사용하는 태그</h1>
+    <mark>테이블 태그</mark>
+    <br>
+    <p>thead : 테이블의 제목 부분</p>
+    <p>tbody : 테이블의 내용 부분</p>
+    <p>tr : 하나의 행을 나누기 위한 태그</p>
+    <p>th : 제목 부분을 넣을 때 사용하는 태그(thead와 함께 사용)</p>
+    <p>td : 내용부분을 넣을 때 사용(tbody와 함께 사용)</p>
+    <hr>
+    <table border="1" align="center" height="200" width="300" bgcolor="khaki">
+         <!-- 테두리 두께, 가운데 정렬, 높이, 가로, 백그라운드 색 -->
+        <thead>
+            <tr bgcolor="yellow">
+                <th>월</th><th>화</th><th>수</th>
+                <!--기본적으로 가운데 정렬에 굵은 글씨-->
+            </tr>
+        </thead>
+        <tbody>
+            <tr height="100" align="right">
+                <td width="150">영어</td><td>수학</td><td>국어</td>
+                <!--좌측 정렬에 일반 글씨-->
+            </tr>
+            <tr>
+                <td>영어</td><td>수학</td><td>국어</td>
+                <!--좌측 정렬에 일반 글씨-->
+            </tr>
+        </tbody>
+    </table>
+    <hr>
+    <table border="1">
+        <tr>
+            <td colspan="2">111</td><td>333</td>
+            <!-- colspan 행 병합 -->
+        </tr>
+        <tr>
+            <td rowspan="2">111</td><td>222</td><td>333</td>
+            <!-- rowspan 열 병합 -->
+        </tr>
+        <tr>
+            <td>222</td><td>333</td>
+        </tr>
+    </table>
+
+</body>
+</html>

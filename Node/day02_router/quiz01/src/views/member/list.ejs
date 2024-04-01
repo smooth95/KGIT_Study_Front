@@ -1,0 +1,19 @@
+<h3>멤버 리스트</h3>
+<table border="1">
+    <thead>
+        <tr>
+            <th>아이디</th>
+            <th>이름</th>
+            <th>주소</th>
+        </tr>
+    </thead>
+    <tbody>
+    <% for (let i = 0; i < mem.length; i++) { %>
+        <tr>
+            <td><%= mem[i].id %></td>
+            <td><a href="/member/info?uID=<%= mem[i].id %>"><%= mem[i].name %></a></td>
+            <td><%= mem[i].addr %></td>
+        </tr>
+    <% } %>
+    </tbody>
+</table>

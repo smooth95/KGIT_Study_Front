@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            margin-top: 0px;
+            margin-bottom: 0px;
+        }
+        #wrap {
+            height: 200px;
+            width: 200px;
+            margin: auto;
+            border: 1px solid lightgray;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .id {
+            width: 193px;
+            height: 20px;
+            font-size: 20px;
+            border: none;
+            border-bottom: 2px solid darkgray;
+            margin: 10px 0;
+        }
+        .id:focus {outline: none;}
+        /* 마우스 클릭했을때 외곽 라인 제거 */
+        .id::-webkit-input-placeholder {
+            text-align: center;
+            letter-spacing: 5px;
+        } /* placeholder 의 설정 변경 */
+        .pwd {
+            border-radius: 5px;
+            width: 193px;
+            height: 20px;
+            margin-bottom: 10px;
+        }
+        .btn {
+            border-radius: 5px;
+            width: 200px;
+            height: 30px;
+            background: lemonchiffon;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <h3 style="text-align: center; border-bottom: 1px solid;">
+            로그인 페이지
+        </h3>
+        <form>
+            <input class="id" type="text" placeholder="input id"><br>
+            <input class="pwd" type="text" placeholder="input password"><br>
+            <input class="btn" type="submit" value="LOGIN"><br>
+        </form>
+    </div>
+</body>
+</html>

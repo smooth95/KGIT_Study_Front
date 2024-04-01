@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>input</h3>
+    <input type="button" value="버어튼"><br>
+    <input type="submit" value="서어브밋"><br>
+    <input type="reset" value="reset"><br>
+    <input type="image" src="16.gif" width="50" alt="???"><br>
+    <input type="file" value=""><br>
+    <hr>
+    <input type="text" value="내용 입력" size="10" maxlength="7"><br>
+    <!-- value 는 직접적인 값을 넣음 -->
+    <input type="password" placeholder="input password"><br>
+    <!--placeholder 반투명 글씨로 데이터를 입력하면 사라짐 -->
+    <input type="email" placeholder="ex@co.kr"><br>
+    <!--@가 포함되어있어야함-->
+    <input type="search" value="값 입력 시 x버튼 활성화"><br>
+    <input type="tel" value="010-1234-1234"><br>
+    <input type="number" min="1" max="10"><br>
+    <!-- 위 아래버튼으로 선택할 수 있는 숫자의 범위를 지정 가능-->
+    <hr>
+    <input type="color"><br>
+    <input type="range"><br>
+    <input type="radio"><br>
+    <input type="checkbox"><br>
+    <input type="hidden" value="내용을 숨김!!"><br>
+    
+    <hr>
+    10대 <input type="radio" name="age">
+    20대 <input type="radio" name="age">
+    30대 <input type="radio" name="age" checked>
+    <!--기본적으로 체크되어있을 수 있게 설정-->
+    40대 <input type="radio" name="age">
+    <!--이름을 묶어서 한개만 체크가 되게끔 설정할 수 있다.-->
+    <hr>
+    책<input type="checkbox" checked>
+    책1<input type="checkbox">
+    책2<input type="checkbox">
+
+    <hr>
+    <form>
+        <input type="text" placeholder="input name"><br>
+        <input type="text" placeholder="input address"><br>
+        <textarea rows="6" cols="50"></textarea><br>
+        <fieldset style="width: 200px;">
+            <!--테두리를 만들수 있다.-->
+            <legend>취미 조사</legend>
+            <!--테두리의 제목을 지정-->
+            <input id="id">
+            <label for="h1">책 읽기</label>
+            <input type="checkbox" id="h1">
+            <label>멍 타기</label>
+            <input type="checkbox">
+
+            <label for="id">아이디 입력</label>
+            <!--클릭하면 id="id"로 이동한다.-->
+        </fieldset>
+
+        <select size="1" name="test_5">
+            <option selected>사과</option>
+            <option selected>배</option>
+            <option selected>복숭아</option>
+        </select>
+
+        <input type="reset" value="초기화">
+        <!-- form 으로 묶여있어야 기능 활성화 -->
+        <input type="submit" value="전송">
+        <!-- form 으로 묶여있어야 기능 활성화 -->
+        <input type="button" value="btn">
+    </form>
+    <!--  -->
+</body>
+</html>

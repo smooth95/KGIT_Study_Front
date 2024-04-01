@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .nav {background: black;}
+        .nav ul {list-style: none; display: flex; justify-content: flex-end;}
+        .nav ul li a {text-decoration: none; color: white; }
+        .nav ul li a:hover {color: orange; border-bottom: 1px solid orange;
+        padding-bottom: 3px; transition: all 0.25s;}
+        .nav ul li {background: yellowgreen; padding: 10px 10px;}
+        /* margin 숫자 두개만 입려시 앞자리는 상 하, 뒷자리는 좌 우 영역 */
+    </style>
+</head>
+<body>
+    <nav class="nav">
+        <ul>
+            <li><a href="">Home</a></li>
+            <li><a href="">Board</a></li>
+            <li><a href="">Member</a></li>
+        </ul>
+    </nav>
+    <hr>
+        display : flex 사용시 아래 내용 적용 가능 <br>
+        flex-start : 왼쪽 끝 정렬 <br>
+        flex-end : 오른쪽 끝 정렬 <br>
+        space-around : 요소 좌우 동일 간격 정렬
+</body>
+</html>

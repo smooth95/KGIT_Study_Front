@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .sp {
+            position: static;
+            left: 30px;
+            background: cyan;
+            width: 400px;
+            height: 50px;
+        }
+        .rp1 {
+            position: fixed;
+            right: 30px;
+            top: 10px;
+            background: orange;
+            width: 400px;
+            height: 50px;
+            z-index: 1;
+        }
+        .rp2 {
+            position: absolute;
+            right: 60px;
+            top: 20px;
+            background: lightblue;
+            width: 400px;
+            height: 50px;
+            z-index: 0;
+        }
+        /* absolute 현재 페이지 기준 */
+        /* fixed 위치 고정 (페이지 스크롤해도 동일) */
+        /* z인덱스 -> 겹친 객체들 순서 조정 */
+    </style>
+</head>
+<body>
+    <p class="sp">정적 위치 설정</p>
+    <p class="rp1">고정 위치(fixed)</p>
+    <p class="rp2">절대 위치 설정(absolute)</p>
+    <p class="sp">정적 위치 설정</p>
+    <p class="sp">정적 위치 설정</p>
+</body>
+</html>

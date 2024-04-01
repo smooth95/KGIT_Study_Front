@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let n1 = Number(prompt("수 입력"));
+        let n2 = Number(prompt("수 입력"));
+        let sum = sumFunc(n1, n2);
+        function sumFunc(n1, n2) {
+            return n1 + n2;
+        }
+        function print(txt) {
+            document.write(txt);
+        }
+        print(sum);
+        
+        function hr() {
+            document.write("<hr>")
+        }
+        hr();
+
+        function num(n1) {
+            if (n1 % 2 == 0) {
+                return "짝수"
+            } else {
+                return "홀수"
+            }
+        }
+        let str = num(n1)
+        print(str)
+        hr();
+
+        function three(n1) {
+            if (n1 % 3 == 0) {
+                print("3의 배수");
+            } else {
+                print("3의 배수 아님");
+            }
+        }
+        three(n1)
+        hr();
+
+        function num2(n1) {
+            let result = 0;
+            for (let i = 1; i <= n1; i++) {
+                if (n1 % i == 0) {
+                    result += 1;
+                }
+            }
+            if (result == 2) {
+                print("소수")
+            } else {
+                print("소수 아님")
+            }
+        }
+        num2(n1)
+        hr();
+
+        function abs(n1) {
+            if (n1 < 0) {
+                print(`n1의 절대값 : ${n1*= -1}`)
+            } else {
+                print(`n1의 절대값 : ${n1}`)
+            }
+        }
+        abs(n1);
+
+
+        
+
+    </script>
+</body>
+</html>

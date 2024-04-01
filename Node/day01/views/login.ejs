@@ -1,0 +1,17 @@
+<h3>login 페이지 입니다.</h3>
+<a href="/">index</a>
+<a href="logout">logout</a>
+<hr>
+<h1>이름 : <%= n%></h1>
+<% const msg = "java script 문법 사용가능 "%>
+<%= msg %>
+<br>
+<% const arr = [10,20,30,40]; %>
+<%= arr[0] %> <%= arr[1] %> <%= arr[2] %><br>
+<script>
+    console.log("msg : " + `<%=msg%>`)
+    const name = "홍길동";
+</script>
+<!-- <script>에서 node.js를 사용가능하지만 
+    node에서 script함수를 사용하지 못함 -->
+    <!--< %= name% >사용되지 않음 -->

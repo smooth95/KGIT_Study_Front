@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>회원 정보</h3>
+    
+    <% console.log(member) %>
+    <% for (let i = 0; i < member.length; i++) { %>
+        id : <%= member[i].id %> <br>
+        name : <%= member[i].name %> <br>
+        addr : <%= member[i].addr %> <br>
+        <hr>
+    <% } %>
+    <h3> foreach </h3>
+    <% member.forEach( data => { %>
+        id : <%= data.id %><br>  
+        name : 
+            <a href="/info?uID=<%= data.id %>">
+                <%= data.name %>
+            </a>
+            <br>
+        addr : <%= data.addr %><br>
+        <hr>
+    <%}) %>
+</body>
+</html>

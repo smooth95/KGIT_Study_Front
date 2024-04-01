@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery-3.7.1.min.js"></script>
+    <style>
+        img {
+            width: 50px;
+        }
+        #modar_wrap {
+            display: none;
+            position: fixed;
+            z-index: 0;
+            margin: auto;
+            top: 0;
+            left: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+        }
+        #image {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            margin: auto;
+            top: 100px;
+            left: 0;
+            right: 0;
+            width: 450px;
+            height: 250px;
+            background: rgba(123, 123, 0, 0.9);
+        }
+        #image img {
+            width: 450px;
+            border: 3px solid orange;
+        }
+    </style>
+    <script>
+        const img1 = (num) => {
+            $("#modar_wrap").show();
+            $("#image").slideDown('slow');
+            $("#image").append(`<img src="../../resources/images/car0${num}.png" onclick="img()">`)
+        }
+        const img = () => {
+            $("#image").html("");
+            $("#image").hide();
+            $("#modar_wrap").hide();
+            
+        }
+    </script>
+</head>
+<body>
+    <div>
+        <table>
+            <thead>
+                <tr>
+                    <td colspan="3"><h3>light box</h3></td>
+                </tr>
+            </thead>
+        </table>
+        <tbody>
+            <tr>
+                <td><img src="../../resources/images/car01.png" onclick="img1(1)"></td>
+                <td><img src="../../resources/images/car02.png" onclick="img1(2)"></td>
+                <td><img src="../../resources/images/car03.png" onclick="img1(3)"></td>
+            </tr>
+        </tbody>
+        <div id="modar_wrap">
+            <div id="image">
+                
+            </div>
+        </div>
+        
+
+    </div>
+</body>
+</html>

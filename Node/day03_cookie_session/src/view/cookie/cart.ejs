@@ -1,0 +1,13 @@
+cart.ejs<br>
+<ul>
+    <li><b>상품 목록</b></li>
+    <% list.forEach( (data) => { %>
+        <li>
+            <a href="/cookie/save/<%= data.goods_id %>">
+            <%= data.title %>
+            </a>
+            : <%= data.price %> 원
+        </li>
+    <% }) %>
+</ul>
+<a href="/cookie/view_list">저장 목록 확인</a>

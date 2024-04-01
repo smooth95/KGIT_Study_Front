@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-weight: bold;
+            font-size: 12pt;
+            background: gray;
+        }
+        .span1 {
+            background: yellow;
+            position: absolute;
+            /* 페이지의 절대적인 값을 기준으로 배치 */
+            top: 5px;
+        }
+        .span2 {
+            background: red;
+            position: absolute;
+            bottom: 30px;
+        }
+        .span3 {
+            background: pink;
+            position: absolute;
+            top: -5px;
+        }
+        div {
+            background-color: skyblue;
+        }
+
+    </style>
+</head>
+<body>
+    <div style="background: green;">position</div>
+    <span class="span1">span1</span>
+    <span class="span2">span2</span>
+    <span class="span3">span3</span>
+    <div>기본 값은 static 입니다.</div>
+</body>
+</html>

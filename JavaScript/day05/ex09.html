@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img {width: 100px; height: 200px;}
+    </style>
+    <script>
+        onload = () => {
+            // alert("execute")
+            let img = document.getElementById("myImg")
+            img.addEventListener("mouseover", changeFunc01)
+            img.addEventListener("mouseout", () => {
+                let myImg = document.getElementById("myImg");
+                let myImg02 = document.getElementById("myImg02");
+                myImg.src = "../../resources/images/car02.png"
+                myImg02.src = "../../resources/images/car01.png"
+            })
+        }
+        changeFunc01 = () => {
+            let myImg = document.getElementById("myImg");
+            let myImg02 = document.getElementById("myImg02");
+            myImg.src = "../../resources/images/car03.png"
+            myImg02.src = "../../resources/images/16.gif"
+        }
+        changeFunc02 = () => {
+            let myImg = document.getElementById("myImg");
+            let myImg02 = document.getElementById("myImg02");
+            myImg.src = "../../resources/images/car02.png"
+            myImg02.src = "../../resources/images/car01.png"
+        }
+    </script>
+</head>
+<body>
+    <img id="myImg" src="../../resources/images/car02.png"><br>
+    <img id="myImg02" src="../../resources/images/car01.png" 
+    onmousedown="changeFunc01()" onmouseup="changeFunc02()"><br>
+</body>
+</html>
+
+

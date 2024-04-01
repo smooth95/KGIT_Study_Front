@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img {width: 100px; height: 100px; border: 1px solid black;}
+        td {
+            width:100px; 
+            height: 100px;
+            text-align: center;
+        }
+        h3 {
+            width: 50px;
+            height: 50px;
+            border: 1px solid black; 
+            background: red;
+            margin: 0 0 0 25px;
+            line-height: 50px;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        let inNum = 0;
+        let outNum = 0;
+        myMouseOver = (num) => {
+            inNum = num;
+            if (inNum != outNum) {
+                if (outNum == 0) {
+
+                } else {
+                    myMouseOut(outNum);
+                }
+            } 
+            console.log("inNum : " + inNum, "outNum : " + outNum)
+            const td = document.getElementById(("td"+num));
+            td.innerHTML = `<h3>선택</h3>`;
+            outNum = num;
+        }
+        myMouseOut = (num) => {
+            console.log("inNum : " + inNum, "outNum : " + outNum)
+            const td = document.getElementById(("td"+num));
+            td.innerHTML = `<img src="../../resources/images/최근상품0${num}.jpg">`;
+        }
+    </script>
+    <div>
+        <table>
+            <tr>
+                <td onmouseover="myMouseOver(1)" onmouseout="myMouseOut(1)" id="td1"><img src="../../resources/images/최근상품01.jpg"></td>
+                <td onmouseover="myMouseOver(2)" onmouseout="myMouseOut(2)" id="td2"><img src="../../resources/images/최근상품02.jpg"></td>
+                <td onmouseover="myMouseOver(3)" onmouseout="myMouseOut(3)" id="td3"><img src="../../resources/images/최근상품03.jpg"></td>
+                <td onmouseover="myMouseOver(4)" onmouseout="myMouseOut(4)" id="td4"><img src="../../resources/images/최근상품04.jpg"></td>
+            </tr>
+            <tr>
+                <td onmouseover="myMouseOver(5)" onmouseout="myMouseOut(5)" id="td5"><img src="../../resources/images/최근상품05.jpg"></td>
+                <td onmouseover="myMouseOver(6)" onmouseout="myMouseOut(6)" id="td6"><img src="../../resources/images/최근상품06.jpg"></td>
+                <td onmouseover="myMouseOver(7)" onmouseout="myMouseOut(7)" id="td7"><img src="../../resources/images/최근상품07.jpg"></td>
+                <td onmouseover="myMouseOver(8)" onmouseout="myMouseOut(8)" id="td8"><img src="../../resources/images/최근상품08.jpg"></td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

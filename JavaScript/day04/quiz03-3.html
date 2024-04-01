@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let num = 16;
+        let result = 0;
+        for (let i = 1; i <= num; i++) {
+            if (i <= 10) {
+                result += 2000;
+            } else {
+                result +=1500;
+            }
+        }
+        document.write(result)
+        document.write("<hr>")
+
+        num = 320;
+        result = 0;
+        for (let i = 1; i <= num; i++) {
+            if (i <= num) {
+                result +=5000;
+            }
+        }
+        if (num >= 100) {
+            result = result * 0.88
+        } else if (num >= 10) {
+            result = result * 0.9
+        }
+        document.write(result)
+    </script>
+</body>
+</html>

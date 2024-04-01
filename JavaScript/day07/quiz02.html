@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            text-align: center;
+            line-height: 100px;
+            margin-top: 50px;
+            margin-left: 90px;
+        }
+    </style>
+    <script>
+        var int1;
+        const btn01 = () => {
+            clearInterval(int1);
+            const div = document.getElementById("div");
+            div.style.background = "yellow";
+            div.innerHTML = "<b>버튼 1 클릭</b>"
+        }
+        const btn02 = () => {
+            clearInterval(int1);
+            const div = document.getElementById("div");
+            div.style.background = "green";
+            div.innerHTML = "<b>버튼 2 클릭</b>"
+        }
+        const btn03 = () => {
+            clearInterval(int1);
+            const div = document.getElementById("div");
+            div.style.background = "lightpink";
+            div.innerHTML = "<b>버튼 3 클릭</b>"
+        }
+        const btn04 = () => {
+            clearInterval(int1);
+            int1 = setInterval(btn04Func,300);
+        }
+        const btn05 = () => {
+            clearInterval(int1);
+            const div = document.getElementById("div");
+            div.style.background = "";
+            div.innerHTML = ""
+        }
+        let cnt = 0;
+        const btn04Func = () => {
+            const div = document.getElementById("div");
+            if (cnt == 0) {
+                div.style.background = "red";
+                div.innerHTML = "<b>버튼 4 클릭</b>"
+                cnt = 1;
+            } else {
+                div.style.background = "";
+                div.innerHTML = ""
+                cnt = 0;
+            }
+
+        }
+    </script>
+</head>
+<body>
+    <input type="button" value="버튼1" onclick="btn01()">
+    <input type="button" value="버튼2" onclick="btn02()">
+    <input type="button" value="버튼3" onclick="btn03()">
+    <input type="button" value="자동" onclick="btn04()">
+    <input type="button" value="지우기" onclick="btn05()">
+    <div id="div">
+    </div>
+</body>
+</html>

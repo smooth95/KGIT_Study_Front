@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const num1 = 10;
+        const num2 = 4;
+        document.write(`${num1} / ${num2} = ${num1 / num2} <br>`)
+        document.write(`${num1} / ${num2} = ${parseInt(num1 / num2)} <br>`)
+        document.write(`${num1} * ${num2} = ${num1 * num2} <br>`)
+        document.write(`${num1} % ${num2} = ${num1 % num2} <br><hr>`)
+    </script>
+
+    <script>
+        let n1, n2;
+        n1 = n2 = 5;
+        n1 +=1; document.write(`${n1}<br>`)
+        n1 -=1; document.write(`${n1}<br>`)
+        n1 *=n2; document.write(`${n1}<br>`)
+        n1 /=n2; document.write(`${n1}<br>`)
+        n1 %=n2; document.write(`${n1}<br><hr>`)
+
+        n1 = '3'; n2 = 3;
+        console.log(typeof n1)
+        console.log(typeof n2)
+        document.write((n1 == n2) + "<br>")
+        document.write((n1 != n2) + "<br>")
+        document.write((n1 === n2) + "<br>")
+        document.write((n1 !== n2) + "<br>")
+        document.write(`<hr>`)
+        document.write((true || false) + "<br>")
+        document.write((true && false) + "<br>")
+        document.write(!(true && false) + "<br>")
+        document.write(`<hr>`)
+        const x = 5;
+        const y = 7;
+        let result;
+        result = (x > y)? x : y;
+        document.write("큰 값 : " + result + "<br>")
+        result = (x > y ) ? x -y : y - x;
+        document.write(`큰값 - 작은값 : ${result}`)
+    </script>
+</body>
+</html>

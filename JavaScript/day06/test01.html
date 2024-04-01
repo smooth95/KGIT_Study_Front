@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table {border: 1px solid;}
+        td {
+            border: 1px solid black;
+            
+        }
+
+
+    </style>
+    <script>
+        let userDB = [
+            {id : 'aaa', name : 'aaaa', age : '23'},
+            {id : 'bbb', name : 'bbbb', age : '33'},
+            {id : 'ccc', name : 'cccc', age : '43'}
+        ]
+        function searchAll() {
+            let list = document.querySelector(".list");
+            let msg = searchAllfor();
+            list.innerHTML = `
+            <table><thead><tr>
+                        <td>아이디</td>
+                        <td>이름</td>
+                        <td>나이</td></tr>
+                    </thead>
+                <tbody>${msg}</tbody></table>`
+        }
+        function searchAllfor() {
+            let msg = "";
+            for (let i = 0; i < userDB.length; i++) {
+                msg += `<tr><td>${userDB[i].id}</td>
+                            <td onclick="memberView(${i})">${userDB[i].name}</td>
+                            <td>${userDB[i].age}</td></tr>`
+            }
+            return msg;
+        }
+        function memberView(num) {
+            let div = document.querySelector(".list");
+            div.innerHTML = `
+            <span><b>아이디 : </b> ${userDB[num].id}</span><br>
+            <span><b>이름 : </b> ${userDB[num].name}</span><br>
+            <span><b>나이 : </b> ${userDB[num].age}</span>`
+        }
+        function searchOne() {
+            let searchText = document.querySelector("#searchText").value;
+            let searchOne = document.querySelector(".searchOne");
+            let table = document.querySelector(".list")
+            console.log(searchText);
+            let result = userDB.filter(value => value.id === searchText)[0];
+            console.log(result)
+            if (result != undefined) {
+                table.innerHTML = `<table><thead><tr>
+                                        <td>아이디</td>
+                                        <td>이름</td>
+                                        <td>나이</td>
+                                        </tr></thead>
+                                        <tbody><tr>
+                                            <td>${result.id}</td>
+                                            <td>${result.name}</td>
+                                            <td>${result.age}</td>
+                                            </tr></tbody></table>`;
+            } else {
+                alert("존재하지 않는 사용자")
+            }
+        }
+        function searchOneFunc(text) {
+            for (let i = 0; i < userDB.length; i++) {
+                if (userDB[i].id == text) {
+                    return i;
+                    break;
+                }
+            }
+            return -1;
+        }
+
+        function deleteText() {
+            let text = document.querySelector("#deleteText").value;
+            let num = searchOneFunc(text);
+            console.log(text)
+            console.log(num)
+            if (num >= 0) {
+                userDB.splice(num, 1);
+                alert("삭제 되었습니다.")
+            } else {
+                alert("존재하지 않는 사용자")
+            }
+            searchAll();
+        }
+    </script>
+</head>
+<body>
+    <div class="list">
+
+    </div>
+    <hr>
+    <input type="button" value="모든 회원 보기" class="searchAll" onclick="searchAll()">
+    <hr>
+    <input type="text" placeholder="input id" id="searchText"><br>
+    <input type="button" value="특정 회원 조회" class="searchOne" onclick="searchOne()">
+    <hr>
+    <input type="text" placeholder="input id" id="deleteText"><br>
+    <input type="button" value="특정 회원 삭제" class="deleteOne" onclick="deleteText()">
+
+    
+</body>
+</html>

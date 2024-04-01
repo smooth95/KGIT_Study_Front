@@ -1,0 +1,18 @@
+<% for (let i = 0; i < context.rank.length; i++) { %>
+    <%= context.rank[i]%><br>
+ <% } %>
+ <%= context.rank.length %>
+ test
+ <hr>
+
+<table border="1">
+    <tbody>
+        <% for (let i = 0; i < context.rank.length; i++) { %>
+           <tr> 
+                <% for (let j = 0; j < context.rank[i].length; j++ ) { %>
+                    <td> <%= context.rank[i][j] %> </td>
+                <% } %>
+            </tr>
+        <% } %>
+    </tbody>
+</table>

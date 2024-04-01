@@ -1,0 +1,23 @@
+<ul>
+    <li><a href="<%= context.url[0]["네이버"] %>">네이버</a></li>
+    <li><a href="<%= context.url[1]["구글"] %>">구글</a></li>
+    <li><a href="<%= context.url[2]["다음"] %>">다음</a></li>
+</ul>
+<hr>
+<%= context.url[0] %>
+<%= Object.keys( context ) %><br>
+<%= Object.keys( context.url[0] ) %><br>
+<%= Object.values( context ) %><br>
+<hr>
+<ul>
+    <% for (let i = 0; i < context.url.length; i++ ) { %>
+       <li><a href="<%= Object.values(context.url[i]) %>">
+        <%= Object.keys( context.url[i] ) %></a></li>
+    <% } %>
+</ul>
+<hr>
+<ul>
+    <% context.url.forEach( (data) => { %>
+        <li><a href="<%= Object.values(data)%>"><%= Object.keys(data) %></a></li>
+    <% }) %>
+</ul>

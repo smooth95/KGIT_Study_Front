@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .in-block {background: orange; width: 200px; height: 50px; display: inline-block;
+        line-height: 50px; text-align: center; text-decoration: none;}
+        /* 위 아래 중앙에 배치하고 좌우 배치한다. */
+        div {
+            background: aqua; width: 300px; height: 300px;
+            /* line-height: 100px; */
+            display: table-cell; vertical-align: middle;
+            /* 여러 줄이 있을때 가운데로 모이게 한다. */
+        }
+        label {height: 30px; background: red; width: 100px; display: inline-block; 
+            text-align: center; }
+        input {width: 300px; height: 30px; border-radius: 10px;}
+    </style>
+</head>
+<body>
+    <a href="#" class="in-block"> 1홈으로 이동</a>
+    <a href="#" class="in-block"> 2홈으로 이동</a>
+    <a href="#" class="in-block"> 3홈으로 이동</a>
+    <div>여러줄<br> 가운데<br>정렬<br>되나요</div>
+    <label>아이디 입력 </label><input>
+</body>
+</html>

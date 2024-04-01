@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box p {color: lime;} /* 하위 선택자 */
+        .box>p {color: orange;} /* 자식 선택자 */
+        .box+div {background: gray;} /* 인접 선택자 */
+        .box ~ p {background: green;} /* 형제 선택자 */
+    </style>
+</head>
+<body>
+    <div class="box">
+        <p> 1. 하위 선택자는 특정 선택자 하위의 모든 요소를 말한다.</p>
+        <div>
+            <p>2. 자식 선택자는 직속 자식 요소를 말한다.</p>
+        </div>
+        <p> 3. 다음 내용</p>
+    </div>
+    <div>1. 인접 선택자는 바로 뒤에 나오는 하나의 요소</div>
+    <div>2. 인접 선택자는 바로 뒤에 나오는 하나의 요소</div>
+    <p> 형제 선택자는 같은 계층에 있는 요소에 적용 된다.</p>
+</body>
+</html>

@@ -1,0 +1,8 @@
+<h3> 기본 페이지</h3>
+<% console.log("cookie : ", userCookie) %>
+<% if (userCookie == undefined) { %>
+    <script>
+        const opt = "width = 300, height = 200, top = 500, left = 500";
+        window.open("/cookie/popup02", "", opt);
+    </script>
+<% } %>

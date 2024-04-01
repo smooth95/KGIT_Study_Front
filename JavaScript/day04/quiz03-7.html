@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let num = 0;
+        for (let i = 1; i <= 5; i++ ) {
+            num = i;
+            document.write(num +" ")
+            for (let j = 1; j < 5; j++) {
+                num = num + i
+                document.write(num +" " )
+            }
+            document.write("<br>")
+        }
+
+        document.write("<hr>")
+        let gop = 0;
+        for (let i = 1; i <= 5; i ++ ) {
+            for (let j = 1; j <= 5; j++ ) {
+                gop = gop + 1;
+                document.write(gop + " ")
+            }
+            document.write("<br>")
+        }
+    </script>
+</body>
+</html>

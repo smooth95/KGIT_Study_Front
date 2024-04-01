@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #h3 {color: red;}
+    </style>
+</head>
+<body>
+    <script>
+        // function clickEvent() {};
+        const clickEvent = () => {
+            // alert("클릭")
+            const name = document.getElementById("name");
+            // id값을 가진 태그를 불러와서 const name에 적용
+            console.log(name);
+            // name.value = "안녕하세요";
+            // name.style = "background : blue";
+            const name1 = document.querySelector("#name2");
+            console.log(name1);
+            name1.value = name.value;
+            name.value = "";
+        }
+        window.onload = () => {
+            // alert("onload")
+            document.getElementsByClassName("btn")
+            // 클래스값을 가진 태그를 불러온다.
+            const btn = document.querySelector(".btn")
+            console.log(btn)
+            btn.addEventListener("dblclick", innerTest);
+            // add로 불러올때는 on을 기입하지 않는다.
+        }
+        // 페이지가 로드되면 실행시켜주는 함수
+        const innerTest = () => {
+            const txt = document.getElementById("text");
+            let msg = "<h3 id='h3'>내용 바꾸기</h3>"
+            txt.innerHTML = msg;
+            // html형식으로 위 h3타입의 태그가 추가된다.
+            // txt.innerText = msg;
+            // 텍스트 문자로 추가
+        }
+    </script>
+    <input type="text" id="name" placeholder="input name"><br>
+    <input type="text" id="name2" placeholder="input name"><br>
+    <input type="button" onclick="clickEvent()" value="클릭">
+    <input type="button" class="btn" value="클릭1">
+    <br>
+    <label id="text">텍스트 값</label>
+</body>
+</html>

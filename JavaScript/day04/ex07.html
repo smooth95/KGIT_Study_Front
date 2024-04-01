@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let num1 = 1;
+        let msg;
+        switch(num1) {
+            case 1: msg = "1과 같음"; break;
+            case 2: msg = "2와 같음"; break;
+            default : msg = "그 외의 값 입력" ;
+        }
+        document.write(msg + "<hr>")
+
+        num = "안녕";
+        switch(num) {
+            case "안녕" : msg = num+"하세요"; break;
+            case "그래" : msg = num+"반갑다"; break;
+        }
+        document.write(msg + "<hr>")
+
+        repeat = 5;
+        msg = "";
+        for (var i = 1; i < repeat ; i ++ ) {
+            msg += `<h${i}>${i}.번째 반복</h${i}>`;
+        }
+        document.write(msg)
+        document.write("<hr>")
+
+        let sum = 0;
+        num = 10;
+        for (var i = 1; i <= num; i++) {
+            sum +=i;
+        }
+        document.write(sum + "<hr>")
+
+        let evenSum = 0; oddSum = 0;
+        sum = 0;
+        num = 10;
+        for (var i = 1; i <= num; i++) {
+            sum +=i;
+            if (i % 2 == 0) {
+                evenSum+=i;
+            } else {
+                oddSum+=i;
+            }
+        }
+        document.write(`1~10까지의 총 합 : ${sum}<br>`)
+        document.write(`1~10까지의 짝수 합 : ${evenSum}<br>`)
+        document.write(`1~10까지의 홀수 합 : ${oddSum}<br>`)
+
+    </script>
+</body>
+</html>

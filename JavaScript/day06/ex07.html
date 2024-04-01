@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const test = () => {
+            // alert('test 호출');
+
+        }
+        window.onload = () => {
+            //document.write('처음 실행<br>')
+            setTimeout(test, 2000);
+            //document.write('2초 대기중...<br>')
+        }
+        let e;
+        const digClock = () => {
+            let today = new Date();
+            let time = today.getMonth() + 1 + "월";
+            time += today.getDate() + "일";
+            time += today.getHours() + "시";
+            time += today.getMinutes() + "분";
+            time += today.getSeconds() + "초";
+            document.getElementById("clock").innerHTML = time;
+            e = setTimeout( digClock, 1000);
+        }
+        const end = () => {clearTimeout(e);}
+    </script>
+    <div id="clock"></div>
+    <button onclick="digClock()">시작</button>
+    <button onclick="end()">종료</button>
+</body>
+</html>

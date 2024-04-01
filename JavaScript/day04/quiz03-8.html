@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let num = 13;
+        document.write(`
+            <table border="1">
+                <tbody>
+                    `)
+        for (num; num > 0; num--) {
+            document.write("<tr>")
+            for (let i = 1; i < 5; i++) {
+                document.write(`<td>${num}0${i}호</td>`)
+            }
+            document.write("</tr>")
+        }
+        document.write(`
+                </tbody>
+            </table>
+            `)
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>이름</th>
+                <th>나이</th>
+                <th>주소</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><%= context.arr[0]%></td>
+                <td><%= context.arr[1]%></td>
+                <td><%= context.arr[2]%></td>
+            </tr>
+            <tr>
+                <td><%= context.obj.name%></td>
+                <td><%= context.obj.age%></td>
+                <td><%= context.obj.addr%></td>
+            </tr>
+            <tr>
+                <td><%= context.name%></td>
+                <td><%= context.age%></td>
+                <td><%= context.addr%></td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
+
+<%= Object.keys( context ) %><br>
+<%= Object.keys( context.obj ) %><br>
+<%= Object.values( context ) %><br>

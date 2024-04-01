@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code111.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="jquery-3.7.1.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            // 초기상태에는$이 있으면 페이지를 정상적으로 출력할 수 없다.
+            $('.hide').click( function () {
+                $('p').hide();
+            })
+            $(".show").click(() => {
+                $('p').show();
+            })
+        })
+    </script>
+</head>
+<body>
+    <p>이벤트 처리</p>
+    <button class="hide">메시지 삭제</button>
+    <button class="show">메시지 보기</button>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let kor = 80;
+        let eng = 30;
+        let mat = 30;
+        let avg = ((kor + eng + mat) / 3).toFixed(2);
+        let str = "";
+        if (avg >= 60 && kor >= 40 && eng >= 40 && mat >= 40) {
+            str = `합격, ${kor}, ${eng}, ${mat}, 합${kor+eng+mat}, 평균${avg}, 등급`
+            switch (parseInt(avg / 10)) {
+                case 9: str += 'A'; break;
+                case 8: str += 'B'; break;
+                case 7: str += 'C'; break;
+                case 6: str += 'D'; break;
+                default : str += 'F'
+            }
+        } else {
+            str = `불합격, ${kor}, ${eng}, ${mat}, 합${kor+eng+mat}, 평균${avg} `
+            if (kor < 40) {
+                str += ", 국어 점수 미달, "
+            }
+            if (eng < 40) {
+                str += ", 영어 점수 미달, "
+            }
+            if (mat < 40) {
+                str += ", 수학 점수 미달"
+            }
+            if (avg < 60) {
+                str += ", 평균 점수 미달"
+            }
+        }
+        str += " 입니다."
+        document.write(str)
+        document.write("<hr>")
+
+        str = "";
+        let num1 = 12;
+        if (num1 == 0) {
+            str = "잘못 입력"
+        } else if (num1 % 3 == 0) {
+            if (num1 % 4 == 0) {
+                str = "3의 배수이면서, 4의 배수에도 해당"
+            } else {
+                str = "3의 배수에만 해당"
+            }
+        } else if (num1 % 4 == 0) {
+            str = "4의 배수에만 해당"
+        } else {
+            str = "3의 배수도, 4의 배수도 해당 안됨"
+        }
+        document.write(str)
+        document.write("<hr>")
+
+        let time = 110;
+        let price = 30000;
+        let temp = parseInt((time-20) / 10);
+        if (time > 30) {
+            price = price + (temp * 5000)
+        }
+        document.write(price)
+    </script>
+</body>
+</html>

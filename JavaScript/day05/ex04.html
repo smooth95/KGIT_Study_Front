@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function test01(x, y) {
+            console.log("첫번째 함수 실행!!!");
+        }
+        function test01(x) {
+            return x;
+        }
+        document.write("함수 호출 인자 없음 : " + test01() + "<br>")
+        document.write("함수 호출 인자 1 : " + test01(10) + "<br>")
+        document.write("함수 호출 인자 2 : " + test01(10,20) + "<br>")
+        // 메서드 오버로딩이 되지 않고 마지막에 있는 함수가 호출된다.
+
+        function test02(x, y, z) {
+            document.write(`${x}, ${y}, ${z} <br>`)
+            if (z == undefined) {
+                sum = x + y;
+            } else {
+                sum = x + y + z;
+            } 
+            return sum;
+        }
+        let r1 = test02(10,20);
+        let r2 = test02(10,20,30);
+        document.write(`매개변수 2개 : ${r1} <br>`)
+        document.write(`매개변수 3개 : ${r2} <br>`)
+
+        function test03() {
+            console.log(arguments.length);
+            let i, sum = 0;
+            for (i = 0; i<arguments.length; i++) {
+                sum = sum + arguments[i];
+                document.write(arguments[i]);
+            }
+            return sum;
+        }
+        let r3 = test03(10,20);
+        let r4 = test03(10,20,30);
+        document.write(`매개변수 2개 : ${r3} <br>`)
+        document.write(`매개변수 3개 : ${r4} <br>`)
+    </script>
+</body>
+</html>

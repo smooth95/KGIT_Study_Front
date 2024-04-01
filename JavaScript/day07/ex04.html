@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        test = () => {
+            let txt = document.getElementById("txt");
+            if (txt.value == "") {
+                alert('값 입력 하세요');
+                return;
+            }
+            // fo.submit();
+            // txt.value가 빈값이 아닐때 id가 fo인 태그를 실행한다.
+            console.log(fo);
+            console.log(fo.txt)
+            console.log(fo.ddd);
+            let f = document.getElementById('fo');
+            console.log(f.querySelector(".div"))
+            console.log(f.querySelector("#ddd"))
+            f.querySelector("#ddd").innerHTML = "값 변경"
+        }
+    </script>
+</head>
+<body>
+    <form id="fo" action="ex03.html">
+        <div id="ddd" class="div">aaaa</div>
+        <input type="text" id="txt"><br>
+        <input type="submit" onclick="test()" value="submit전송">
+        <input type="button" onclick="test()" value="btn전송">
+        <!-- 검증을 하여 다음 페이지로 넘어갈 경우 button을 사용하여 작성
+        submit은 검증을 하던 안하던 action페이지로 넘어가게된다. -->
+    </form>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        console.log("프로그램 시작");
+        function test() {
+            console.log("test함수 실행");
+        }
+        console.log("함수 지나옴");
+        test();
+        console.log("프로그램 종료");
+
+        function localVal() {
+            let num = 20000;
+            if (true) {
+                num += 10000;
+                console.log("if : " + num);
+            }
+            console.log("localVal : " + num);
+        }
+        localVal();
+
+        let num = 1234;
+        function localVal01() {
+            console.log("localVal01 : " + num);
+        }
+        function localVal02() {
+            console.log("localVal02 : " + num);
+        }
+        localVal01();
+        localVal02()
+    </script>
+</body>
+</html>

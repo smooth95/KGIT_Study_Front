@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery-3.7.1.min.js"></script>
+    <style>
+        img {
+            display: flex;
+            width: 100px;
+            height: 100px;
+        }
+        #runfield {
+            display: flex;
+        }
+        #div1 {
+            border-left: 1px solid;
+            position: absolute;
+            left: 300px;
+            height: 100px;
+
+        }
+    </style>
+    <script>
+        var num = 1;
+        var imagenum = 2;
+        var num1 = 20;
+        var date;
+        var ready;
+        const move = () => {
+            if (date == null) {
+                date = new Date();
+                ready = setInterval(timer, 100);
+            }
+            if (imagenum % 9 == 0) imagenum = 1;
+            console.log(imagenum)
+            const runfield = document.getElementById("runfield");
+            runfield.innerHTML = `<img src="../resources/images/p${imagenum}.png" id="img1"><div id="div1"></div>`;
+            if (num == 11) {
+                clearInterval(ready);
+            }
+            num ++;
+            imagenum++;
+            $("#img1").css({"margin-left" : num1})
+            num1 += 20;
+
+        }
+        const reset = () => {
+            if (num > 11)
+                $("#ready").html("~~~~ 준비 ~~~~")
+            $("#img1").css({"margin-left" : 0})
+            num1 = 20;
+            num = 1;
+            date = null;
+            cnt = 1;
+        }
+        let cnt = 0;
+        const timer = () => {
+            let d = new Date();
+            if (cnt == 0) {
+                d = d - date;
+                let time = (parseInt(d/1000))+":";
+                time += " "+d%1000 + "초";
+                document.getElementById("ready").innerHTML = time;
+            }
+        }
+    </script>
+</head>
+<body>
+    <div style="text-align: center;">
+        <label id="ready">~~~~ 준비 ~~~~</label>
+    </div>
+    <hr>
+    <div id="runfield">
+        <img src="../resources/images/p1.png">
+        <div id="div1"></div>
+    </div>
+    <hr>
+    <input type="button" id="run" value="달리기" onclick="move()">
+    <input type="button" id="reset" value="초기화" onclick="reset()">
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img {width: 100px; height : 100px;}
+        div { text-align: center; background: gainsboro;}
+        .over {margin: auto; width: 100px; height : 100px; overflow: hidden;}
+        /* over클래스인 div를 좌우 가운데로 맞춘다. 텍스트 센터 정렬과 다름 */
+        img:hover {transform : scale(1.1); transition : all 0.1s;}
+        /* 1.1배 크게 보여지게한다. */
+        .h02 {display:none;}
+        .h01:hover {display: none;}
+        .h01:hover+.h02 {display: block;}
+        /* h01에 올라가면 h01내용을 지우고 h02를 보여지게 한다. */
+    </style>
+</head>
+<body>
+    <div style="height: 200px;">
+        <h1>Hover Effect</h1>
+        <div class="h01">
+            <img src="16.gif">
+        </div>
+        <div class="h02">
+            <button>기사</button>
+            <button>구독</button>
+        </div>
+    </div>
+    <hr>
+    <div>
+        <h1>hover Effect</h1>
+        <div class="over">
+            <img src="16.gif"><br>
+        </div>
+    </div>
+</body>
+</html>

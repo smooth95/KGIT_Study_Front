@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var cnt = 0;
+        const inner = () => {
+            cnt++;
+            let msg = `내용 : ${cnt}<br>`;
+            let txt = document.getElementById('txt');
+            // txt.innerHTML = msg;
+            txt.insertAdjacentHTML('afterbegin', msg);
+            txt.insertAdjacentHTML('beforeend', msg);
+        }
+    </script>
+    <div id="txt">안녕하세요</div>
+    <button onclick="inner()">클릭</button>
+</body>
+</html>

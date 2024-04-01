@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let name = '홍길동';
+        let age = prompt('나이입력')
+        document.write("학생 이름 : " + name + "<br>")
+        document.write("학생 나이 : " + age + "<br>")
+        // document -> 현재 페이지를 의미한다. (현재 페이지에 출력한다.)
+        
+        document.write(`이름 : ${name}님의 나이는 ${age}살 입니다.<hr>`)
+        // 백틱..?(~표에 있는 다른 특수문자) 문자와 변수가 같이있을때 사용하여 
+        // 매번 쌍따옴표 및 +를 사용하지않을 수 있다.
+        console.log(`age : ${typeof age}`)
+        let num = Number(age);
+        // 자료형 변환
+        console.log(`num : ${typeof num}`)
+        console.log(`num : ${typeof num.toString()}`)
+        // 문자형식으로 다시 형변환
+        console.log(`num : ${typeof (num+"")}`)
+        // 문자형식으로 다시 형변환
+    </script>
+    <!-- 필요에 따라 head나 body에 넣을 수 있다. -->
+</head>
+<body>
+</body>
+</html>

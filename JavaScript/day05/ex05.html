@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        (function test() {
+            // alert("즉시 실행 함수!!!");
+        }) ();
+        let result = (function test1() {
+            return "서버로 부터 데이터를 받아와 화면에 보여줌"
+        })();
+        document.write(result +"<br>");
+
+        let name ="홍길동";
+        let result02 = (function test02(n) {
+            let db = n + "님의 정보 입니다.";
+            return db;
+        })(name);
+        document.write(result02 + "<br>")
+    </script>
+</body>
+</html>

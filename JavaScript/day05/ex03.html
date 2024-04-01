@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function testFunc01() {
+            let num = 95;
+            let txt = '안녕하세요';
+            return num, txt;
+        }
+        const result = testFunc01();
+        document.write(result + "<hr>")
+        document.write("<br>")
+
+        function testFunc02() {
+            let num = 95;
+            let txt = '안녕하세요';
+            const arr = [num, txt];
+            return arr;
+            // 바로 return [num, txt]로 넘겨주어도 정상적으로 출력된다.
+        }
+        const result2 = testFunc02();
+        document.write(result2 + "<hr>")
+        document.write(result2[0] + "<hr>")
+        document.write(result2[1] + "<hr>")
+        document.write("<br>")
+        // 배열방식으로 전달
+
+        function testFunc03() {
+            let num = 95;
+            let txt = '안녕하세요';
+            const arr = {'num':num, 'txt':txt};
+            return arr;
+            // 바로 return [num, txt]로 넘겨주어도 정상적으로 출력된다.
+        }
+        const result3 = testFunc03();
+        console.log(result3);
+        document.write(result3 + "<hr>")
+        document.write(result3['num'] + "<hr>")
+        document.write(result3.txt + "<hr>")
+        document.write("<br>")
+        // 오브젝트 타입으로 전달
+    </script>
+</body>
+</html>

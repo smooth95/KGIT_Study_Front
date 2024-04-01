@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let img;
+        function add() {
+            img = document.createElement('img');
+            console.log(img);
+            img.src = "../../resources/images/16.gif"
+            img.setAttribute("width","100");
+            img.setAttribute("style","height:100px; border: 1px solid;");
+            console.log(img);
+            document.getElementById('test').appendChild(img);
+        }
+
+        function addTB() {
+            let data = [
+                {id:'aaa', name:'홍길동'},
+                {id:'bbb', name:'홍길비'}
+            ]
+            let table = document.createElement('table');
+            data.forEach((value) => {
+                var tr = document.createElement('tr');
+                var td1 = document.createElement('td');
+                td1.innerHTML = value.id;
+                tr.appendChild(td1);
+                var td2 = document.createElement('td');
+                td2.innerHTML = value.name;
+                tr.appendChild(td2);
+                table.appendChild(tr);
+            })
+            document.getElementById("test").appendChild(table);
+
+        }
+
+        function remove() {
+            let items = document.getElementById('test');
+            // document.getElementById('test').remove();
+            // items.remove();
+            items.removeChild(items.childNodes[items.childNodes.length-1])
+        }
+        
+    </script>
+    <p id="test"></p>
+    <a href="#" onclick="addTB()">테이블 추가</a><br>
+    <b onclick="add()">add클릭</b>
+    <b onclick="remove()">이미지 삭제 클릭</b>
+</body>
+</html>

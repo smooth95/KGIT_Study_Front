@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let n1 = Number(4);
+        let str ;
+        let result = (n1 % 2 == 0)?str = '짝':str = '홀';
+        document.write(`${n1}은 ${str}수 입니다. `+ "<hr>")
+        
+        n1 = Number(6);
+        result = (n1 % 3 == 0)?document.write(`${n1}은 3의 배수`+"<br>"): 
+        document.write(`${n1}은 3의 배수가 아님` +"<br>");
+        n1 = 5;
+        n2 = 7;
+        result = (n1 > n2)?n1 : n2;
+        document.write(`${n1}과 ${n2}중 큰 수는 ${result} 입니다.`)
+    </script>
+</body>
+</html>

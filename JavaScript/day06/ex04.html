@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let dic = {f0 : 100, 'f1' : 200};
+        document.write(`기본 값 : ${dic}<br>`);
+
+        function test() {
+            document.write("test실행<br>")
+        }
+        dic.f2 = '값 추가';
+        dic['f3'] = 'f3333';
+        dic.func = test;
+
+        document.write(dic.f0+"<br>");
+        document.write(dic['f1']+"<br>");
+        document.write(dic.f2+"<br>");
+        document.write(dic.f3+"<br>");
+        document.write(dic.func+"<br>");
+        dic.func()
+    </script>
+</body>
+</html>

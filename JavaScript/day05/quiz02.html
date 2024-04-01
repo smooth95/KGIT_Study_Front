@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let n1 = -79;
+        let n2 = 20;
+        let sum = (n1,n2) => n1>n2?n1:n2;
+        document.write(sum(n1, n2)+"<hr>")
+        
+        let evenodd = function(n1) {
+            if (n1 % 2 == 0) {
+                return "짝수"
+            } else {
+                return "홀수"
+            }
+        }
+        document.write(evenodd(n1));
+        document.write("<hr>")
+        
+        let txt = (function three(n1) {
+            if (n1 % 3 == 0) {
+                return `${n1}은 3의 배수`
+            } else {
+                return `${n1}은 3의 배수 아님`
+            }
+        }) (n1);
+        document.write(txt)
+        document.write("<hr>")
+
+        let num = (n1) => {
+            let count = 0;
+            for (let i = 1; i <= n1; i++) {
+                if (n1 % i == 0) {
+                    count += 1;
+                }
+            }
+            if (count == 2) {
+                return "소수"
+            } else {
+                return "소수 아님"
+            }
+        }
+        document.write(num(n1))
+        document.write("<hr>")
+
+        let num1 = (n1) => {
+            if (n1 < 0) {
+                return n1*-1;
+            } else {
+                return n1;
+            }
+        }
+        document.write(`${n1}의 절대값은 ${num1(n1)} 입니다.`)
+
+    </script>
+</body>
+</html>

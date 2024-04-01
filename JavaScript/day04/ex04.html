@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const num01 = prompt('첫번째 수 입력')
+        const num02 = prompt('첫번째 수 입력')
+        console.log(typeof num01)
+        console.log(num01 + num02)
+        console.log(typeof Number(num01) + " : " + Number(num01))
+        // 1.111로 출력됨 실수 및 정수든 모두 그대로 표시한다.
+        console.log(typeof parseInt(num01)  + " : " + parseInt(num01))
+        // 1 로 출력됨 (int형태로 형변환한다. 실수 버려짐)
+
+        const su01 = 10, su02 = 3;
+        document.write("10 / 3 =>" + su01 / su02 + "<br>")
+        document.write("Number 10 / 3 =>" + Number(su01 / su02) + "<br>")
+        document.write("parseInt 10 / 3 =>" + parseInt(su01 / su02) + "<br>")
+    </script>
+</body>
+</html>

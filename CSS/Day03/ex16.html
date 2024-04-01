@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #wrap {
+            width: 50%;
+            height: 200px;
+            border: 4px solid black;
+            margin: auto;
+            text-align: center;
+            display: flex;
+            
+        }
+        #wrap div {width: 33.33%;}
+        .cl01 {order: 3; background: red;}
+        .cl02 {order: 2; display: flex; background: green;}
+        .cl03 {order: 1; background: aqua;}
+        .h01 {background: lightblue; width: 100%;}
+        .h02 {background: lightcoral; width: 100%;}
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <div class="cl01"><h1>1</h1></div>
+        <div class="cl02">
+            <h1 class="h01">첫번째</h1>
+            <h1 class="h02">두번째</h1>
+        </div>
+        <div class="cl03"><h1>3</h1></div>
+    </div>
+</body>
+</html>
