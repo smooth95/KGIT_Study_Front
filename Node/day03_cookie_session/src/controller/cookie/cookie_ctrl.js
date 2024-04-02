@@ -30,7 +30,10 @@ const makeCookie = (req, res) => {
 const ser = require("../../service/cookie/cookie_service")
 
 const cart = (req, res) => {
-    res.render("cookie/cart", {list : ser.cart()})
+    if (req.session.username) 
+        res.render("cookie/cart", {list : ser.cart()})
+    else
+        res.redirect("/session/login")
 }
 
 const save = (req, res) => {
