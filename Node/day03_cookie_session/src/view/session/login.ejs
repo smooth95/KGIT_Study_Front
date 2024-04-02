@@ -1,0 +1,19 @@
+<% console.log("username : " , username) %>
+<!-- ctrl에서 넘어온 username값을 출력한다. -->
+<% if(username) { %>
+    <b> <%= username %> 님 로그인 상태!!!</b>
+    <br>
+    <a href="/session/logout">로그아웃</a>
+    <a href="/session/success">성공페이지</a>
+<!-- 이미 로그인 후 session값을 전달받았을 경우 표시하는 페이지
+로그인후 다시 로그인버튼을 클릭했을때 표시된다. -->
+<% } else {%>
+    <form action="/session/login_check" method="post">
+        <input type="text" name="id"><br>
+        <input type="text" name="pwd"><br>
+        <input type="submit" value="로그인"><br>
+    </form>
+<% } %>
+<!-- 로그인 하지 않았을경우 표시된다. 
+로그인 후 정상적인 방법이 아닌 url을 직접 입력하여
+접속할 경우 표시되는 페이지 -->
