@@ -1,0 +1,8 @@
+<%- include("../default/header") %>
+<%= console.log("req : " ,req.session.name) %>
+<form action="login_check" >
+    <input type="text" name="id" placeholder="input id"><br>
+    <input type="text" name="pwd" placeholder="input password"><br>
+    <a href="/member/register_form">회원가입</a>
+    <input type="submit" value="login">
+</form>

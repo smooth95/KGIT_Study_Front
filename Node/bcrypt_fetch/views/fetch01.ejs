@@ -1,0 +1,40 @@
+<script>
+    function test() {
+        // location.href= "non_fetch";
+        // fetch("/fetch01")
+        // const result = fetch("/get_count")
+        // console.log("result : ", result)
+        // result.then(res => {
+        //     console.log("res : ", res)
+        //     return res.json();
+        // })
+        // .then(data => {
+        //     console.log("data : ", data)
+        //     document.getElementById("cnt").innerHTML = data.cnt;
+        // })
+
+
+        // 위의 내용을 줄여서 아래처럼 사용가능하다.
+        fetch("/get_count")
+        .then(res => res.json())
+        .then(data => {
+            console.log("data : ", data)
+            document.getElementById("cnt").innerHTML = data.cnt;
+        })
+
+
+    }
+
+    async function test2() {
+        const result = await fetch("/get_count")
+        console.log("result : ", result)
+        const data = await result.json();
+        console.log("data : ", data)
+        document.getElementById("cnt").innerHTML = data.cnt;
+    }
+</script>
+
+<h1>일</h1><h1>일</h1><h1>일</h1><h1>일</h1><h1>일</h1>
+<button onclick="test()">클릭</button>
+<button onclick="test2()">클릭</button>
+<span id="cnt"><%= count %></span>

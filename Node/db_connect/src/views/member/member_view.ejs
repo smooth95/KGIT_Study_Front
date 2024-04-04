@@ -1,0 +1,10 @@
+<h3> 개인 정보</h3>
+<%= console.log("test:",member) %>
+id : <%= member.ID %> <br>
+pwd : <%= member.PWD %> <br>
+name : <%= member.NAME %> <br>
+addr : <%= member.ADDR %> <br>
+<hr>
+    <a href="/member/modify_form?id=<%=member.ID %>">수정</a>
+    <a href="/member/delete/<%=member.ID %>">삭제</a>
+    <a href="/member/list">목록이동</a>

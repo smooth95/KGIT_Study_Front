@@ -1,0 +1,8 @@
+<a href="/">HOME</a>
+<% if(req.session.name != undefined) { %>
+    <a href="/member/logout">로그아웃</a>
+<% } else { %>
+    <a href="/member/login">로그인</a>
+<% } %>
+    <a href="/member/member_view">회원정보</a>
+<hr>

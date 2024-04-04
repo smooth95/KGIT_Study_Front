@@ -1,0 +1,26 @@
+<%- include("../default/header") %>
+<% if (req.session.name == undefined) { %>
+    <script>
+        alert("로그인을 먼저 진행해주세요")
+        location.href = "/member/login"
+    </script>
+<% } else {%>
+    <table border="1">
+        <thead>
+            <th>아이디</th>
+            <th>비밀번호</th>
+            <th>이름</th>
+            <th>주소</th>
+        </thead>
+        <tbody>
+            <% member.forEach(mem => { %>
+                <tr>
+                <td><%= mem.ID %></td>
+                <td><%= mem.PWD %></td>
+                <td><%= mem.NAME %></td>
+                <td><%= mem.ADDR %></td>
+                </tr>
+            <% }) %>
+        </tbody>
+    </table>
+<% } %>

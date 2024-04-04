@@ -1,0 +1,28 @@
+<script>
+    window.onload = () => {
+        const view = document.getElementById("view");
+    }
+    let msg = "";
+    const moreMember = () => {
+        fetch("/view_member/more", {method:"get"})
+        .then(res => res.json())
+        .then(data => {
+            console.log("data0 : ", data[0])
+            console.log(data[1])
+            for (let i = 0; i < data.length; i++) {
+                msg += `<label>${data[i].id},</label>`
+                msg += `<label>${data[i].name},</label>`
+                msg += `<label>${data[i].addr}</label> <br>`
+            }
+            console.log(msg)
+            view.innerHTML = msg
+        })
+    }
+
+</script>
+
+<form>
+    <div id="view"></div>
+    <hr>
+    <input type="button" onclick="moreMember()" id="more" value="3명씩 더 보기">
+</form>
