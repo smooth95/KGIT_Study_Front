@@ -1,0 +1,11 @@
+<script src="/static/js/image_read.js"></script>
+
+<form action="/file/upload" method="post" enctype="multipart/form-data">
+    <!-- 파일 보낼때는 post방식, 파일 보내는 타입을 지정 -->
+    <input type="text" name="title"><br>
+    <img id="img" src="" width="100px" height="100px">
+    <input type="file" name="file_name" onchange="readURL(this)"><br>
+    <input type="submit" value="전송">
+</form>
+<hr>
+<a href="/file/list">목록 확인</a>
