@@ -1,0 +1,27 @@
+#messages li {
+    text-decoration: none;
+    list-style: none;
+    margin-bottom: 0;
+    bottom: 0;
+}
+#messages #sendMsg {
+    text-align: right;
+}
+
+#messages #receiveMsg {
+    text-align: left;
+}
+#chat_area {
+    background-color: lightblue;
+    width: 300px;
+    height: 300px;
+    max-height: 300px;
+    margin: auto;
+    
+}
+#chat_text {
+    background-color: lightcoral;
+    width: 300px;
+    height: 30px;
+    margin: auto;
+}

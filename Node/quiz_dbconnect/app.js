@@ -8,6 +8,7 @@ config.sessionConfig.store = new fileStore();
 const app = express();
 app.use(session(config.sessionConfig));
 app.use(bodyParser.urlencoded());
+app.use("/static", express.static("./public"))
 
 const router = require("./src/routers/router")(app)
 

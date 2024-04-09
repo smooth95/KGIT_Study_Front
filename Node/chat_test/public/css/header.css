@@ -1,0 +1,40 @@
+body {
+    width: 800px;
+    margin: auto;
+}
+#nav ul{
+    display: flex;
+    margin: auto;
+    justify-content: center;
+    
+}
+#nav ul a {
+    margin-right: 20px;
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    font-size: 20px;
+}
+#nav {
+    margin: auto;
+}
+#header {
+    background-color: olive;
+    height: 50px;
+    line-height: 50px;
+    width: 800px;
+    margin: auto;
+    margin-top: 20px;
+}
+#chatArea {
+    background-color: lightblue;
+    width: 300px;
+    height: 300px;
+    margin-bottom: 0px;
+}
+#chatDiv form {
+    margin-top: 0px;
+}
+#chatDiv {
+    background-color: blue;
+}

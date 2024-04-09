@@ -1,0 +1,49 @@
+header {
+    text-align: center;
+}
+.head_menu {
+    background-color: rgb(141, 136, 41);
+    text-align: right;
+    line-height: 30px;
+    height: 30px;
+
+}
+.head_menu > a {
+    text-decoration: none;
+    color: white;
+    font-size: 10px;
+    margin-right: 5px;
+}
+
+.login {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.member_view {
+    display: flex;
+    text-align: center;
+    margin-top: 30px;
+    justify-content: center;
+}
+.board_list {
+    display: flex;
+    /* text-align: center; */
+    align-items: center;
+    margin-top: 30px;
+    flex-direction: column;
+    font-size: 10px;
+    text-align: center;
+}
+.board_list > table {
+    text-align: center;
+    width: 500px;
+}
+.board_list > a {
+    text-align: right;
+    width: 500px;
+}
+.index {
+    text-align: center;
+    margin-top: 30px;
+}

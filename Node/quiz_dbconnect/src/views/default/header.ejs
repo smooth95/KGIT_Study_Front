@@ -1,8 +1,13 @@
-<a href="/">HOME</a>
-<% if(req.session.name != undefined) { %>
-    <a href="/member/logout">로그아웃</a>
-<% } else { %>
-    <a href="/member/login">로그인</a>
-<% } %>
-    <a href="/member/member_view">회원정보</a>
-<hr>
+<div>
+    <img src="/static/resources/image/car01.png" width="100px" height="100px">
+</div>
+<div class="head_menu">
+    <a href="/">HOME</a>
+    <a href="/board/list">게시판</a>
+    <% if(req.session.name != undefined) { %>
+        <a href="/member/logout">로그아웃</a>
+    <% } else { %>
+        <a href="/member/login">로그인</a>
+    <% } %>
+        <a href="/member/member_view">회원정보</a>
+</div>

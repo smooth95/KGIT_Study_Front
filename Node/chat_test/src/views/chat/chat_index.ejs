@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="/socket.io/socket.io.js"></script>
+    <link href="/static/css/chat.css" rel="stylesheet">
+    <%- include("../default/header.ejs") %>
+
+</head>
+<body>
+    <!-- 메시지를 표시할 UL 요소 -->
+    <div id="chat_area">
+        <ul id="messages"></ul>
+        <!-- 채팅 입력 폼 -->
+    </div>
+    <div id="chat_text">
+        <form id="form">
+            <!-- 채팅 메시지를 입력할 input 요소 -->
+            <input id="input" autocomplete="off" />
+            
+            <!-- 폼 제출 버튼 -->
+            <input type="submit" value="전달">  
+        </form>
+    </div>
+
+
+    <!-- <h3>채팅 페이지</h3>
+    <div id="chatDiv">
+        <div id="chatArea"></div>
+        <ul></ul>
+        <form>
+            <input type="text" placeholder="input text">
+            <input type="submit" value="전송">
+        </form>
+    </div> -->
+    
+</body>
+</html>
+
+<script>
+    const socket = io();
+
+    // 채팅 메시지 전송 폼 이벤트 핸들러
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        sendMessage();
+    });
+
+    function sendMessage() {
+        const input = document.getElementById('input');
+        const message = input.value;
+        socket.emit('chat message', message, '<%= cookie %>');
+        
+        input.value = '';
+    }
+
+    function displayMessage(message, receive_cookie) {
+        console.log("받은 쿠키: " ,receive_cookie)
+        console.log("내 쿠키: " ,'<%= cookie %>')
+        const messages = document.getElementById('messages');
+        const item = document.createElement('li');
+        if (receive_cookie == '<%= cookie %>') {
+            item.id = "sendMsg"
+            item.textContent = message+ " : " + receive_cookie;
+        } else {
+            item.id = "receiveMsg"
+            item.textContent = receive_cookie+ " : " + message;
+        }
+        messages.appendChild(item);
+    }
+
+    
+    // 서버로부터 'chat message' 이벤트를 받으면 화면에 메시지 출력
+    socket.on('chat message', function(msg, receive_cookie) {
+        
+        displayMessage(msg, receive_cookie);
+    });
+</script>

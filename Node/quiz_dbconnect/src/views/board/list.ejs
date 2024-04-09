@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="/static/css/public.css" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <%- include("../default/header.ejs") %>
+    </header>
+    <div class="board_list">
+        <table border="1">
+            <thead>
+                <th>번호</th>
+                <th>id</th>
+                <th>제목</th>
+                <th>날짜</th>
+                <th>조회수</th>
+                <th>원본 이미지 이름</th>
+                <th>변경 이미지 이름</th>
+            </thead>
+            <tbody>
+                <% console.log(list[0].WRITE_NO)%>
+                <% list.forEach(data => { %>
+                    <tr>
+                        <td><%=data.WRITE_NO%></td>
+                        <td><%=data.ID%></td>
+                        <td><%=data.TITLE%></td>
+                        <td><%=data.SAVE_DATE%></td>
+                        <td><%=data.HIT%></td>
+                        <td><%=data.ORIGIN_FILE_NAME%></td>
+                        <td><%=data.CHANGE_FILE_NAME%></td>
+                    </tr>
+                <% }) %>
+            </tbody>
+        </table>
+        <a href="/board/write_form">글 작성</a>
+    </div>
+</body>
+</html>
