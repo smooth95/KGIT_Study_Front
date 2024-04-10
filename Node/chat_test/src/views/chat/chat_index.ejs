@@ -12,34 +12,24 @@
 <body>
     <!-- 메시지를 표시할 UL 요소 -->
     <div id="chat_area">
-        <ul id="messages"></ul>
         <!-- 채팅 입력 폼 -->
     </div>
     <div id="chat_text">
         <form id="form">
             <!-- 채팅 메시지를 입력할 input 요소 -->
-            <input id="input" autocomplete="off" />
+            <textarea id="input" onkeydown="handleKeyDown(event)" autocomplete="off" placeholder="전달할 텍스트 입력" ></textarea>
             
             <!-- 폼 제출 버튼 -->
-            <input type="submit" value="전달">  
+            <input type="submit" id="send" value="전달">  
         </form>
     </div>
 
-
-    <!-- <h3>채팅 페이지</h3>
-    <div id="chatDiv">
-        <div id="chatArea"></div>
-        <ul></ul>
-        <form>
-            <input type="text" placeholder="input text">
-            <input type="submit" value="전송">
-        </form>
-    </div> -->
-    
 </body>
 </html>
 
 <script>
+    let count = 0;
+    let rec_count = 0
     const socket = io();
 
     // 채팅 메시지 전송 폼 이벤트 핸들러
@@ -47,28 +37,84 @@
         e.preventDefault();
         sendMessage();
     });
+    socket.on('userConnected', (data) => {
+        console.log('새로운 사용자가 연결되었습니다.', data.userId);
+        const messages = document.createElement('div');
+        const item = document.createElement('p');
+        const chatArea = document.getElementById('chat_area');
+        item.id = "infoMsg"
+        item.textContent = "알림 : 상대방이 접속하였습니다.";
+        count = 0;
+        rec_count = 0;
+        messages.appendChild(item);
+        chatArea.appendChild(messages);
+        scrollToBottom(chatArea)
+    });
 
     function sendMessage() {
         const input = document.getElementById('input');
         const message = input.value;
         socket.emit('chat message', message, '<%= cookie %>');
-        
         input.value = '';
+       
+    }
+    
+    function scrollToBottom(elem) {
+        elem.scrollTop = elem.scrollHeight;
     }
 
     function displayMessage(message, receive_cookie) {
         console.log("받은 쿠키: " ,receive_cookie)
         console.log("내 쿠키: " ,'<%= cookie %>')
-        const messages = document.getElementById('messages');
-        const item = document.createElement('li');
+        const messages = document.createElement('div');
+        const item = document.createElement('p');
+        const who = document.createElement('p');
+        const chatArea = document.getElementById('chat_area');
+        const br = document.createElement('br');
         if (receive_cookie == '<%= cookie %>') {
             item.id = "sendMsg"
-            item.textContent = message+ " : " + receive_cookie;
+            who.id = "send_who"
+            messages.id = "send_messages"
+            if (count == 0) {
+                item.innerHTML = convertNewlineToBr(message);
+                who.textContent = " : 나";
+                count = 1;
+                rec_count = 0;
+            } else {
+                item.innerHTML = convertNewlineToBr(message);
+            }
+            messages.appendChild(item);
+            messages.appendChild(who);
         } else {
             item.id = "receiveMsg"
-            item.textContent = receive_cookie+ " : " + message;
+            who.id = "rec_who"
+            messages.id = "rec_messages"
+            if (rec_count == 0) {
+                item.innerHTML = convertNewlineToBr(message);
+                who.textContent = "상대 : ";
+                rec_count = 1;
+                count = 0;
+            } else {
+                item.innerHTML = convertNewlineToBr(message);
+
+            }
+            messages.appendChild(who);
+            messages.appendChild(item);
         }
-        messages.appendChild(item);
+        messages.appendChild(br);
+        chatArea.appendChild(messages);
+        scrollToBottom(chatArea)
+    }
+
+    function convertNewlineToBr(text) {
+        return text.replace(/\n/g, '<br>');
+    }
+
+    function handleKeyDown(event) {
+        if (event.keyCode === 13 && !event.shiftKey) {
+            event.preventDefault();
+            sendMessage();
+        }
     }
 
     

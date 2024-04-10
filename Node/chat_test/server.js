@@ -28,10 +28,11 @@ app.set("view engine", "ejs")
 
 io.on('connection', (socket) => {
     console.log('a user connected');
-    
+
+    socket.broadcast.emit('userConnected', { userId:socket.id})
+
     // 클라이언트로부터 받은 메시지를 다시 클라이언트로 브로드캐스트
     socket.on('chat message', (msg, cookie) => {
-        console.log("cookie : ", cookie)
         io.emit('chat message', msg, cookie);
     });
     
@@ -39,6 +40,8 @@ io.on('connection', (socket) => {
     socket.on('disconnect', () => {
         console.log('user disconnected');
     });
+
+    
 });
 
 

@@ -1,27 +1,78 @@
-#messages li {
-    text-decoration: none;
-    list-style: none;
-    margin-bottom: 0;
-    bottom: 0;
-}
-#messages #sendMsg {
-    text-align: right;
+#chat_area {
+    background-color: rgb(184, 204,221);
+    width: 500px;
+    height: 300px;
+    margin: auto;
+    overflow: auto;
+    padding-bottom: 10px;
 }
 
-#messages #receiveMsg {
-    text-align: left;
+#send_messages {
+    min-height: 20px;
+    display: flex;
+    justify-content: flex-end;
 }
-#chat_area {
-    background-color: lightblue;
-    width: 300px;
-    height: 300px;
-    max-height: 300px;
-    margin: auto;
+#rec_messages {
+    min-height: 20px;
+    display: flex;
+    justify-content: flex-start;
+}
+#sendMsg {
+    background-color: rgb(247, 230, 0);
+    border-radius: 5px;
+    margin: 5px 10px 0 0 ;
+    min-height: 20px;
+    min-width: 10px;
+    max-width: 300px;
+    padding: 5px 8px 5px 8px;
+}
+#receiveMsg {
+    background-color: white;
+    border-radius: 5px;
+    margin: 5px 0 0 10px ;
+    min-height: 20px;
+    min-width: 10px;
+    max-width: 300px;
+    padding: 5px 8px 5px 8px;
+}
+
+#send_who {
+    margin: 10px 0 0 0;
+    min-width: 30px;
+    font-weight: bold;
     
 }
+#rec_who {
+    margin: 10px 0 0 0;
+    min-width: 45px;
+    font-weight: bold;
+    
+}
+
 #chat_text {
     background-color: lightcoral;
-    width: 300px;
-    height: 30px;
+    width: 500px;
+    height: 40px;
     margin: auto;
+}
+#input {
+    width: 450px;
+    height: 40px;
+    border-radius: 5px;
+    margin: 0px;
+    resize: none;
+}
+#form {
+    text-align: center;
+    display: flex;
+    align-items: center;
+}
+#send {
+    height: 46px;
+    width: 50px;
+}
+#infoMsg {
+    text-align: center;
+    color: blue;
+    font-weight: bold;
 }

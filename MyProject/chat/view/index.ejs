@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Socket.IO Chat</title>
+</head>
+<body>
+    <ul id="messages"></ul>
+	<form id="nickname-form">
+		<input type="text" id="nickname-input" placeholder="Enter your nickname">
+		<button type="submit">Set Nickname</button>
+	</form>
+    <form id="form" action="">
+        <input id="input" autocomplete="off" /><button>Send</button>
+    </form>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        var socket = io();
+
+        var form = $('#form');
+        var input = $('#input');
+		var socket = io( {
+			extraHeaders : {
+				cookie : document.cookie
+			}
+		})
+
+        form.submit(function(e) {
+            e.preventDefault();
+            if (input.val()) {
+                socket.emit('chat message', input.val());
+                input.val('');
+            }
+        });
+
+		$('#nickname-form').submit(function(e) {
+				e.preventDefault();
+				var nickname = $('#nickname-input').val();
+				socket.emit('set nickname', nickname);
+		});
+
+        socket.on('chat message', function(msg) {
+            $('#messages').append($('<li>').text(msg));
+            window.scrollTo(0, document.body.scrollHeight);
+			
+        });
+    </script>
+</body>
+</html>
