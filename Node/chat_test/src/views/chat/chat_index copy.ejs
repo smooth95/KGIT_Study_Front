@@ -17,61 +17,49 @@
     <div id="chat_text">
         <form id="form">
             <!-- 채팅 메시지를 입력할 input 요소 -->
-            <textarea id="input" autocomplete="off" placeholder="전달할 텍스트 입력" ></textarea>
+            <textarea id="input" onkeydown="handleKeyDown(event)" autocomplete="off" placeholder="전달할 텍스트 입력" ></textarea>
             
             <!-- 폼 제출 버튼 -->
             <input type="submit" id="send" value="전달">  
         </form>
     </div>
-    <input type="button" onclick="connectUser(111)" value="aaa연결">
-    <input type="button" onclick="connectUser(222)" value="bbb연결">
-    <input type="button" onclick="connectUser(333)" value="ccc연결">
+    <input type="button" onclick="connectedUser('aaa')" value="aaa연결">
+    <input type="button" onclick="connectedUser('bbb')" value="bbb연결">
+    <input type="button" onclick="connectedUser('ccc')" value="ccc연결">
 
 </body>
 </html>
 
 <script>
-    socket = io();
-    let roomId;
+    let count = 0;
     let rec_count = 0
-    let count = 0
+    const socket = io();
+
     window.onload = () => {
-        console.log('<%=cookie%>')
-    }
-    function connectUser(num) {
-        roomId = num;
-        socket.emit('connectUser', roomId, '<%=cookie%>')
 
     }
 
+    function connectedUser(user) {
+        socket.emit('startChat', user)
+    }
+
+    // 채팅 메시지 전송 폼 이벤트 핸들러
     form.addEventListener('submit', function(e) {
         e.preventDefault();
         sendMessage();
     });
 
-    function sendMessage() {
-        const input = document.getElementById('input');
-        const message = input.value;
-        console.log('<%=cookie%>')
-        socket.emit('chat message', message, roomId, '<%=cookie%>');
-        input.value = '';
-       
-    }
-    socket.on('chat message', function(msg, cookie) {
-        console.log("cookie확인2:", cookie)
-        displayMessage(msg, cookie);
-    });
-    
-    socket.on('userConnected', (userId) => {
+    socket.on("setSocketId", () => {
+        socket.emit('setSocketId', '<%= cookie %>' )
+    })
+
+    socket.on('userConnected', (data) => {
+        console.log("data.id : ", data)
         const messages = document.createElement('div');
         const item = document.createElement('p');
         const chatArea = document.getElementById('chat_area');
         item.id = "infoMsg"
-        if (userId == '<%=cookie%>') {
-            item.textContent = '알림 : 채팅방에 접속하였습니다.'
-        } else {
-            item.textContent = '알림 : 상대방이 접속하였습니다.';
-        }
+        item.textContent = "알림 : 상대방이 접속하였습니다.";
         count = 0;
         rec_count = 0;
         messages.appendChild(item);
@@ -79,9 +67,21 @@
         scrollToBottom(chatArea)
     });
 
+    function sendMessage() {
+        const input = document.getElementById('input');
+        const message = input.value;
+        socket.emit('chat message', message, '<%= cookie %>');
+        input.value = '';
+       
+    }
+    
+    function scrollToBottom(elem) {
+        elem.scrollTop = elem.scrollHeight;
+    }
+
     function displayMessage(message, receive_cookie) {
+        console.log("받은 쿠키: " ,receive_cookie)
         console.log("내 쿠키: " ,'<%= cookie %>')
-        console.log("상대방 쿠키 : ", receive_cookie)
         const messages = document.createElement('div');
         const item = document.createElement('p');
         const who = document.createElement('p');
@@ -122,28 +122,21 @@
         scrollToBottom(chatArea)
     }
 
-    
-
     function convertNewlineToBr(text) {
         return text.replace(/\n/g, '<br>');
     }
 
-    
     function handleKeyDown(event) {
         if (event.keyCode === 13 && !event.shiftKey) {
             event.preventDefault();
             sendMessage();
         }
     }
+
     
-    function scrollToBottom(elem) {
-        elem.scrollTop = elem.scrollHeight;
-    }
-
-    // window.addEventListener('beforeunload', function(event) {
-    // // 페이지가 닫힐 때 실행할 함수
-    // outCharRoom(userId);
-    // 작업해야함
-
-
+    // 서버로부터 'chat message' 이벤트를 받으면 화면에 메시지 출력
+    socket.on('chat message', function(msg, receive_cookie) {
+        
+        displayMessage(msg, receive_cookie);
+    });
 </script>
