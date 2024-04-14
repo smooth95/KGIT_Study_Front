@@ -1,10 +1,7 @@
 <link href="/static/css/header.css" rel="stylesheet">
 <script>
     window.onload = () => {
-        console.log(document.cookie)
-        console.log(document.cookie.indexOf("isLogin=true"))
         let msg = "<a href='/'>메인 페이지</a>"
-        console.log(document.cookie.chatID)
         msg += "<a href='/chat'>채팅</a>"
         if (document.cookie.indexOf("isLogin=true") !== -1) {
             msg += "<a href='/chat/logout'>로그아웃</a>"

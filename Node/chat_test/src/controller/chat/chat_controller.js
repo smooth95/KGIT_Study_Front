@@ -3,10 +3,20 @@ const cookieConfig = require("../../../config/cookie_session/config")
 
 const chat_view = {
     index : (req, res) => {
-        res.render("chat/chat_index", { cookie : req.cookies.chatID })
+        const user = service.getUser();
+        res.render("chat/chat_index", { cookie : req.cookies.chatID, user })
     },
     chatLoginForm : (req, res) => {
         res.render("chat/chat_login_form")
+    },
+    info : (req, res) => {
+        console.log("req.params.num : ", req.params.num)
+        console.log("req.cookies.id : ", req.params.id)
+        res.render("chat/chat_form", {
+            cookie : req.cookies.chatID,
+            num : req.params.num,
+            recId : req.params.id,
+        })
     }
 }
 const chat_process = {

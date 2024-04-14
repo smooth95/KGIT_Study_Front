@@ -4,146 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script src="/socket.io/socket.io.js"></script>
-    <link href="/static/css/chat.css" rel="stylesheet">
     <%- include("../default/header.ejs") %>
 
 </head>
 <body>
-    <!-- 메시지를 표시할 UL 요소 -->
-    <div id="chat_area">
-        <!-- 채팅 입력 폼 -->
-    </div>
-    <div id="chat_text">
-        <form id="form">
-            <!-- 채팅 메시지를 입력할 input 요소 -->
-            <textarea id="input" autocomplete="off" placeholder="전달할 텍스트 입력" ></textarea>
-            
-            <!-- 폼 제출 버튼 -->
-            <input type="submit" id="send" value="전달">  
-        </form>
-    </div>
-    <input type="button" onclick="connectUser(111)" value="aaa연결">
-    <input type="button" onclick="connectUser(222)" value="bbb연결">
-    <input type="button" onclick="connectUser(333)" value="ccc연결">
-
+    
+    <br>
+    <% for (let i = 0; i < user.length; i++) { %>
+        <a href="/chat/info/<%=user[i].id%>/<%=user[i].num%>"><%=user[i].id%> 연결</a>
+    <% } %>
 </body>
 </html>
 
-<script>
-    socket = io();
-    let roomId;
-    let rec_count = 0
-    let count = 0
-    window.onload = () => {
-        console.log('<%=cookie%>')
-    }
-    function connectUser(num) {
-        roomId = num;
-        socket.emit('connectUser', roomId, '<%=cookie%>')
-
-    }
-
-    form.addEventListener('submit', function(e) {
-        e.preventDefault();
-        sendMessage();
-    });
-
-    function sendMessage() {
-        const input = document.getElementById('input');
-        const message = input.value;
-        console.log('<%=cookie%>')
-        socket.emit('chat message', message, roomId, '<%=cookie%>');
-        input.value = '';
-       
-    }
-    socket.on('chat message', function(msg, cookie) {
-        console.log("cookie확인2:", cookie)
-        displayMessage(msg, cookie);
-    });
-    
-    socket.on('userConnected', (userId) => {
-        const messages = document.createElement('div');
-        const item = document.createElement('p');
-        const chatArea = document.getElementById('chat_area');
-        item.id = "infoMsg"
-        if (userId == '<%=cookie%>') {
-            item.textContent = '알림 : 채팅방에 접속하였습니다.'
-        } else {
-            item.textContent = '알림 : 상대방이 접속하였습니다.';
-        }
-        count = 0;
-        rec_count = 0;
-        messages.appendChild(item);
-        chatArea.appendChild(messages);
-        scrollToBottom(chatArea)
-    });
-
-    function displayMessage(message, receive_cookie) {
-        console.log("내 쿠키: " ,'<%= cookie %>')
-        console.log("상대방 쿠키 : ", receive_cookie)
-        const messages = document.createElement('div');
-        const item = document.createElement('p');
-        const who = document.createElement('p');
-        const chatArea = document.getElementById('chat_area');
-        const br = document.createElement('br');
-        if (receive_cookie == '<%= cookie %>') {
-            item.id = "sendMsg"
-            who.id = "send_who"
-            messages.id = "send_messages"
-            if (count == 0) {
-                item.innerHTML = convertNewlineToBr(message);
-                who.textContent = " : 나";
-                count = 1;
-                rec_count = 0;
-            } else {
-                item.innerHTML = convertNewlineToBr(message);
-            }
-            messages.appendChild(item);
-            messages.appendChild(who);
-        } else {
-            item.id = "receiveMsg"
-            who.id = "rec_who"
-            messages.id = "rec_messages"
-            if (rec_count == 0) {
-                item.innerHTML = convertNewlineToBr(message);
-                who.textContent = "상대 : ";
-                rec_count = 1;
-                count = 0;
-            } else {
-                item.innerHTML = convertNewlineToBr(message);
-
-            }
-            messages.appendChild(who);
-            messages.appendChild(item);
-        }
-        messages.appendChild(br);
-        chatArea.appendChild(messages);
-        scrollToBottom(chatArea)
-    }
-
-    
-
-    function convertNewlineToBr(text) {
-        return text.replace(/\n/g, '<br>');
-    }
-
-    
-    function handleKeyDown(event) {
-        if (event.keyCode === 13 && !event.shiftKey) {
-            event.preventDefault();
-            sendMessage();
-        }
-    }
-    
-    function scrollToBottom(elem) {
-        elem.scrollTop = elem.scrollHeight;
-    }
-
-    // window.addEventListener('beforeunload', function(event) {
-    // // 페이지가 닫힐 때 실행할 함수
-    // outCharRoom(userId);
-    // 작업해야함
-
-
-</script>

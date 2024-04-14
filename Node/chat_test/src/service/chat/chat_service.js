@@ -1,7 +1,7 @@
 const user = [
-    {id : "aaa", pwd : "aaa"},
-    {id : "bbb", pwd : "bbb"},
-    {id : "ccc", pwd : "ccc"},
+    {id : "aaa", pwd : "aaa", num : 101},
+    {id : "bbb", pwd : "bbb", num : 102},
+    {id : "ccc", pwd : "ccc", num : 103},
 ]
 const process = {
     loginChk : (body) => {
@@ -20,7 +20,12 @@ const getMessage = (msg, url) => {
     `
 }
 
+const getUser = () => {
+    return user;
+}
+
 module.exports = {
     process,
     getMessage,
+    getUser,
 }
